@@ -23,7 +23,9 @@ Finds some possibly useful information from the generated csv
 ### Running the project
  `cd example-project`
 
- `dotnet run --project example-project.csproj dataset.csv`
+ `dotnet run --project example-project.csproj [path to csv]`
+ 
+ If no path is included, then the path is assumed to be `dataset.csv`, in this project directory
 
  Make sure to include the path to the csv file generated, so that this project knows which file to use
 

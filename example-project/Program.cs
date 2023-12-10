@@ -22,14 +22,13 @@ public class Row
 
 public class Example {
     public static int Main(string[] argv) {
-        if (argv.Length != 1) {
-            Console.WriteLine("Please pass path to csv file as first argument to program");
-            return 1;
+        var csvPath = "dataset.csv";
+        if (argv.Length == 1 ) {
+            csvPath = argv[0];
         }
 
-        try 
-        {
-            using (var reader = new StreamReader(argv[0]))
+        try {
+            using (var reader = new StreamReader(csvPath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 // convert to list (in memory) since CsvHelper has lazy property and running multiple queries would require reading the same file multiple times
@@ -52,12 +51,14 @@ public class Example {
                 Console.WriteLine($"Average age of those with weight between 120 and 140 lbs: {averageAgeOfCentralWeights}");
             }
         }
-        catch 
+        catch (Exception ex)
         {
             Console.WriteLine("Fatal exception has occured");
             Console.WriteLine("Please ensure that the csv file exists and has headers of the following format:");
             Console.WriteLine("\nFirstname,Lastname,Age,Weight,Gender");
             Console.WriteLine("\nPlease note that Age and Weight are integers and the rest of the attributes are strings");
+
+            Console.Write(ex.ToString());
             return 1;
         }
         return 0;
