@@ -11,6 +11,7 @@ This solution contains 2 projects.
  
 ### Running the project
  `cd generate-data`
+
  `dotnet run --project generate-data.csproj`
 
  After generating the csv, copy that file to the other project folder:
@@ -21,6 +22,7 @@ Finds some possibly useful information from the generated csv
  
 ### Running the project
  `cd example-project`
+
  `dotnet run --project example-project.csproj dataset.csv`
  Make sure to include the path to the csv file generated, so that this project knows which file to use
 
