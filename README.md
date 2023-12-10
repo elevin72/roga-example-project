@@ -24,6 +24,7 @@ Finds some possibly useful information from the generated csv
  `cd example-project`
 
  `dotnet run --project example-project.csproj dataset.csv`
+
  Make sure to include the path to the csv file generated, so that this project knows which file to use
 
 
